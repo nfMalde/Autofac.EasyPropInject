@@ -1,6 +1,13 @@
 # Autofac.EasyPropInject
 An extension i created to make it possible to to  inject properties by attribute, without any other helper libs in  .NET Core for [Autofac](https://github.com/autofac/Autofac).
 
+# Install
+## Nuget
+`Install-Package Autofac.EasyPropInject -Version 1.0.0`
+## DotNetCli
+`dotnet add package Autofac.EasyPropInject --version 1.0.0`
+
+
 # Usage
 ## Startup.cs
 Go to  "ConfigureServices"
