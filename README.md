@@ -29,7 +29,7 @@ and then you create the instance BEFORE any registration.
 
 ## Usage in the Code
 ```c#
-using Autofac.EasyPropInject.Annotations
+using Autofac.EasyPropInject.Annotations;
 public class MyClass:IMyInterface 
 { 
     public MyClass(ISomeOtherInterface someService) 
