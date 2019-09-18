@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Autofac.EasyPropInject.Annotations
 {
+    /// <summary>
+    /// FromAutofac Attribute to mark properties for injection
+    /// </summary>
     [System.AttributeUsage(System.AttributeTargets.Property,
                    AllowMultiple = false,
                    Inherited = true)]

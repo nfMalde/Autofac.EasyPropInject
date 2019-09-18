@@ -1,13 +1,20 @@
-﻿using System;
-using Autofac;
-using Autofac.Builder;
+﻿using Autofac;
+using System;
 using System.Linq;
 using System.Reflection;
 
 namespace Autofac.EasyPropInject
 {
+    /// <summary>
+    /// Extension class for adding easy prop inject
+    /// </summary>
     public static class EasyPropInject
     {
+        /// <summary>
+        /// Adds the event listeners for auto injecting properties
+        /// </summary>
+        /// <param name="builder">ContainerBuilder</param>
+        /// <returns>ContainerBuilder</returns>
         public static ContainerBuilder AddEasyPropInject(this ContainerBuilder builder)
         {
             builder.RegisterCallback(c =>
