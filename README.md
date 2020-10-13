@@ -4,9 +4,9 @@ An extension i created to make it possible to to  inject properties by attribute
 
 # Install
 ## Nuget
-`Install-Package Autofac.EasyPropInject -Version 1.0.0`
+`Install-Package Autofac.EasyPropInject -Version 1.2.1`
 ## DotNetCli
-`dotnet add package Autofac.EasyPropInject --version 1.0.0`
+`dotnet add package Autofac.EasyPropInject --version 1.2.1`
 
 
 # Usage
