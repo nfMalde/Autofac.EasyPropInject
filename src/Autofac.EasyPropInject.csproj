@@ -6,6 +6,7 @@
     <Description>Allows to inject proprtiers of classes by using annotations.</Description>
     <Authors>Malte Peters</Authors>
     <PackageTags>autofac, injections, annotations</PackageTags>
+    <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
