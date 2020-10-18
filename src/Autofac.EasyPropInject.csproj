@@ -10,7 +10,8 @@
     <Copyright>Malte Peters</Copyright>
     <PackageProjectUrl>https://github.com/nfMalde/Autofac.EasyPropInject</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nfMalde/Autofac.EasyPropInject</RepositoryUrl>
-    <RepositoryType>GIT</RepositoryType> 
+    <RepositoryType>GIT</RepositoryType>
+    <PackageReleaseNotes>Added project information to github repository and minore infos.</PackageReleaseNotes> 
   </PropertyGroup>
 
   <ItemGroup>
