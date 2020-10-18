@@ -1,3 +1,6 @@
+[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/)
+
+
 # Important!
 Due to breaking changes to Autofac API  with version 6.x older  Autofac.EasyPropInject Readme can be found in 1.0.x (Autofac <=4>) and 1.1.x (Autofac >=5 < 6>).
 master and 1.2.x will show code examples and info only for Autofac >= 6.
@@ -5,10 +8,10 @@ master and 1.2.x will show code examples and info only for Autofac >= 6.
 # Autofac.EasyPropInject
 An extension i created to make it possible to to  inject properties by attribute, without any other helper libs in  .NET Core for [Autofac](https://github.com/autofac/Autofac).
 
-
 # Install
-## Nuget
+## Nuget 
 `Install-Package Autofac.EasyPropInject`
+
 ## DotNetCli
 `dotnet add package Autofac.EasyPropInject`
 
