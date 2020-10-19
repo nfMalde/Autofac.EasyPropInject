@@ -1,5 +1,5 @@
 [![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/)
-
+[![Downloads](https://img.shields.io/nuget/dt/Autofac.Easypropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/)
 
 # Important!
 Due to breaking changes to Autofac API  with version 6.x older  Autofac.EasyPropInject Readme can be found in 1.0.x (Autofac <=4>) and 1.1.x (Autofac >=5 < 6>).
