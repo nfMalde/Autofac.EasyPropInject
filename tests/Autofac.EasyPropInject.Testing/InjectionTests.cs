@@ -25,7 +25,6 @@ namespace Autofac.EasyPropInject.Testing
             builder.Register<Mock3>(x => new Mock3()).As<IMock3>();
             builder.Register<Mock4>(x => new Mock4()).As<IMock4>();
 
-
             this.container = builder.Build();
         }
 
@@ -35,7 +34,7 @@ namespace Autofac.EasyPropInject.Testing
         [Test]
         public void ItShouldInjectPropertiesOfInstanceAndChildInstances()
         {
-           var m1 = this.container.Resolve<IMock1>();
+            var m1 = this.container.Resolve<IMock1>();
 
             Assert.NotNull(m1.Mock2Property);
             Assert.NotNull(m1.Mock2Property.Mock3Property);

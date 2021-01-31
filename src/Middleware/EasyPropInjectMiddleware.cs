@@ -1,14 +1,10 @@
 ﻿using Autofac.Core.Resolving.Pipeline;
 using Autofac.EasyPropInject.Annotations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Autofac.EasyPropInject.Middleware
 {
-
     /// <summary>
     /// Autofac Resolve Pipeline Middleware for detecting properties decorated with "FromAutofacAttribute"
     /// </summary>
@@ -28,7 +24,6 @@ namespace Autofac.EasyPropInject.Middleware
         /// <param name="next">The method to invoke to continue the pipeline execution; pass this method the <paramref name="context" /> argument.</param>
         public void Execute(ResolveRequestContext context, Action<ResolveRequestContext> next)
         {
-            
             // Call the next middleware in the pipeline.
             next(context);
 
@@ -47,8 +42,8 @@ namespace Autofac.EasyPropInject.Middleware
             if (instance != null)
             {
                 var props = instance.GetType().GetProperties();
-                
-                foreach(PropertyInfo property in props)
+
+                foreach (PropertyInfo property in props)
                 {
                     this._resolve(property, context);
                 }
@@ -60,7 +55,7 @@ namespace Autofac.EasyPropInject.Middleware
         /// </summary>
         /// <param name="property">The property.</param>
         /// <param name="context">The context.</param>
-        private void  _resolve(PropertyInfo property, ResolveRequestContext context)
+        private void _resolve(PropertyInfo property, ResolveRequestContext context)
         {
             object instance = context.Instance;
 
@@ -74,7 +69,6 @@ namespace Autofac.EasyPropInject.Middleware
                 context.TryResolve(targetType, out propertyInstance);
                 // Set value to property with the newly resolved instance
                 property.SetValue(instance, propertyInstance);
-
             }
         }
     }

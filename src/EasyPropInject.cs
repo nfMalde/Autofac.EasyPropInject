@@ -1,10 +1,4 @@
-﻿using Autofac;
-using Autofac.Core.Resolving.Middleware;
-using Autofac.EasyPropInject.Middleware;
-using System;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
+﻿using Autofac.EasyPropInject.Middleware;
 
 namespace Autofac.EasyPropInject
 {
@@ -20,9 +14,8 @@ namespace Autofac.EasyPropInject
         /// <returns>ContainerBuilder</returns>
         public static ContainerBuilder AddEasyPropInject(this ContainerBuilder builder)
         {
-           
             builder.RegisterCallback(c =>
-            {   
+            {
                 c.Registered += (sender, args) =>
                 {
                     // The PipelineBuilding event fires just before the pipeline is built, and
@@ -32,7 +25,6 @@ namespace Autofac.EasyPropInject
                         // Add EasyPropInjectMiddleware
                         pipeline.Use(new EasyPropInjectMiddleware());
                     };
-
                 };
             });
 
