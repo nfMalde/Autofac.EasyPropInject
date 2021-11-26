@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/nfMalde/Autofac.EasyPropInject</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nfMalde/Autofac.EasyPropInject</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageReleaseNotes>Added project information to github repository and minore infos.</PackageReleaseNotes> 
+    <PackageReleaseNotes>Upgraded to Autofac 6.1.x</PackageReleaseNotes> 
   </PropertyGroup>
 
   <ItemGroup>
