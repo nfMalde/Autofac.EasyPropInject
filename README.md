@@ -1,5 +1,5 @@
-[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/) 
- [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
+[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=flat)](https://www.nuget.org/packages/Autofac.EasyPropInject/) 
+ [![Paypal Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
 
 
 # Important!
@@ -21,7 +21,7 @@ If you got any Ideas to improve my projects feel free to send an pull request.
 
 If you like my work and want to support me (or want to buy me a coffee/beer) paypal donation are more than appreciated.
 
- [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
+ [![Paypal Donate](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
 
 # Usage
 ## Startup.cs
@@ -66,7 +66,7 @@ Since the type casting feature new in 1.2.x of EasyPropInject is handy sometimes
 
 
 # Whats new?
-* 1.2.1 - Upgraded to Autofac 6.1.x
+* 1.2.3 - Upgraded to Autofac 6.1.x
 * 1.2.0 - Implemented Easy Prop Inject for Autofac 6.x and added the feature to load an property as different type from IContainer. See FromAutofacAttribute.
 * 1.1.1 - Easy Prop Inject now supports Autofac 5.x
 * 1.0.0 - Added Tests
