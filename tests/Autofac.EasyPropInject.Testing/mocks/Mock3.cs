@@ -1,7 +1,4 @@
 ﻿using Autofac.EasyPropInject.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Autofac.EasyPropInject.Testing.mocks
 {
@@ -11,7 +8,6 @@ namespace Autofac.EasyPropInject.Testing.mocks
 
         string GetString();
     }
-     
 
     public class Mock3 : IMock3
     {

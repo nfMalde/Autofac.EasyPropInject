@@ -1,7 +1,4 @@
 ﻿using Autofac.EasyPropInject.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Autofac.EasyPropInject.Testing.mocks
 {
@@ -21,7 +18,6 @@ namespace Autofac.EasyPropInject.Testing.mocks
     /// <seealso cref="Autofac.EasyPropInject.Testing.mocks.IMock1" />
     public class Mock1 : IMock1
     {
-
         [FromAutofac]
         public IMock2 Mock2Property { get; set; }
 

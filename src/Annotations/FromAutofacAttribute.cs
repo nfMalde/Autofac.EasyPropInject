@@ -8,7 +8,7 @@ namespace Autofac.EasyPropInject.Annotations
     [System.AttributeUsage(System.AttributeTargets.Property,
                    AllowMultiple = false,
                    Inherited = true)]
-    public class FromAutofacAttribute:Attribute
+    public class FromAutofacAttribute : Attribute
     {
         /// <summary>
         /// If set, EasyPropInject will try to load the type out of the autofac container instead of the type that property is decalared
