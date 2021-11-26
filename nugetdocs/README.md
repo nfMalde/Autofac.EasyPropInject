@@ -1,4 +1,4 @@
-[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/) 
+[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=flat-square)](https://www.nuget.org/packages/Autofac.EasyPropInject/) 
  [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue?style=flat-square&logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
 
 
