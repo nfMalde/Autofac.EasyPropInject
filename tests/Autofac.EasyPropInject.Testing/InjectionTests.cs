@@ -24,6 +24,8 @@ namespace Autofac.EasyPropInject.Testing
             builder.Register<Mock2>(x => new Mock2()).As<IMock2>();
             builder.Register<Mock3>(x => new Mock3()).As<IMock3>();
             builder.Register<Mock4>(x => new Mock4()).As<IMock4>();
+            builder.RegisterType<MockPrivate>().As<IMockPrivate>();
+            builder.RegisterType<MockProtected>().As<IMockProtected>();
 
             this.container = builder.Build();
         }
@@ -39,6 +41,23 @@ namespace Autofac.EasyPropInject.Testing
             Assert.NotNull(m1.Mock2Property);
             Assert.NotNull(m1.Mock2Property.Mock3Property);
             Assert.NotNull(m1.Mock2Property.Mock3Property.Mock4ResolvedAsMainType);
+        }
+
+        [Test]
+        public void ItShouldResolvePrivateProperties()
+        {
+            var mPrivate = this.container.Resolve<IMockPrivate>();
+
+            Assert.NotNull(mPrivate.Mock1Test());
+        }
+
+        [Test]
+        public void ItShouldResolveProtectedProperties()
+        {
+            var mPrivate = this.container.Resolve<IMockProtected>();
+
+            Assert.NotNull(mPrivate.GetMockPrivate());
+            Assert.NotNull(mPrivate.GetMockPrivate().Mock1Test());
         }
     }
 }

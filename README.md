@@ -1,5 +1,5 @@
-[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/) 
- [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
+[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=flat)](https://www.nuget.org/packages/Autofac.EasyPropInject/) 
+ [![Paypal Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
 
 
 # Important!
@@ -21,7 +21,7 @@ If you got any Ideas to improve my projects feel free to send an pull request.
 
 If you like my work and want to support me (or want to buy me a coffee/beer) paypal donation are more than appreciated.
 
- [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
+ [![Paypal Donate](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
 
 # Usage
 ## Startup.cs
@@ -55,6 +55,13 @@ public class MyClass:IMyInterface
     [FromAutofac]
     public IUnitOfWork unit { get;set; }
 
+
+    [FromAutofac] //Since Autofac.EasyPropInject@1.2.5: Support for protected properties
+    protected IMyService serviceProtected {get;set;}
+
+    [FromAutofac] //Since Autofac.EasyPropInject@1.2.5: Support for private properties
+    private IMyService2 servicePrivate {get;set;}
+
     [FromAutofac(typeof(IUnitOfWork))]
     public UnitOfWorkBaseClass unit2 {get;set;}
 }
@@ -66,7 +73,9 @@ Since the type casting feature new in 1.2.x of EasyPropInject is handy sometimes
 
 
 # Whats new?
-* 1.2.1 - Upgraded to Autofac 6.1.x
+* 1.2.5 - Upgraded to Autofac 6.3.x, Added support for private and protected properties See tests for example (https://github.com/nfMalde/Autofac.EasyPropInject/blob/1.2.x/tests/Autofac.EasyPropInject.Testing/InjectionTests.cs)
+* 1.2.4 - Upgraded to Autofac 6.2.x
+* 1.2.3 - Upgraded to Autofac 6.1.x
 * 1.2.0 - Implemented Easy Prop Inject for Autofac 6.x and added the feature to load an property as different type from IContainer. See FromAutofacAttribute.
 * 1.1.1 - Easy Prop Inject now supports Autofac 5.x
 * 1.0.0 - Added Tests
