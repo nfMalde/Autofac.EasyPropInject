@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Allows to inject proprtiers of classes by using annotations.</Description>
+    <Description>Allows to inject properties of classes by using annotations.</Description>
     <Authors>Malte Peters</Authors>
     <PackageTags>autofac, injections, annotations, dependency injection, property injection</PackageTags>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
