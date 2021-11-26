@@ -41,7 +41,7 @@ namespace Autofac.EasyPropInject.Middleware
 
             if (instance != null)
             {
-                var props = instance.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Instance);
+                var props = instance.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 
                 foreach (PropertyInfo property in props)
                 {
