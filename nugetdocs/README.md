@@ -56,6 +56,13 @@ public class MyClass:IMyInterface
     [FromAutofac]
     public IUnitOfWork unit { get;set; }
 
+
+    [FromAutofac] //Since Autofac.EasyPropInject@1.2.5: Support for protected properties
+    protected IMyService serviceProtected {get;set;}
+
+    [FromAutofac] //Since Autofac.EasyPropInject@1.2.5: Support for private properties
+    private IMyService2 servicePrivate {get;set;}
+
     [FromAutofac(typeof(IUnitOfWork))]
     public UnitOfWorkBaseClass unit2 {get;set;}
 }
@@ -67,9 +74,9 @@ Since the type casting feature new in 1.2.x of EasyPropInject is handy sometimes
 
 
 # Whats new?
+* 1.2.5 - Upgraded to Autofac 6.3.x, Added support for private and protected properties See tests for example (https://github.com/nfMalde/Autofac.EasyPropInject/blob/1.2.x/tests/Autofac.EasyPropInject.Testing/InjectionTests.cs)
 * 1.2.4 - Upgraded to Autofac 6.2.x
 * 1.2.3 - Upgraded to Autofac 6.1.x
 * 1.2.0 - Implemented Easy Prop Inject for Autofac 6.x and added the feature to load an property as different type from IContainer. See FromAutofacAttribute.
 * 1.1.1 - Easy Prop Inject now supports Autofac 5.x
 * 1.0.0 - Added Tests
-

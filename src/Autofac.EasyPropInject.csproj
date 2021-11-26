@@ -11,13 +11,14 @@
     <PackageProjectUrl>https://github.com/nfMalde/Autofac.EasyPropInject</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nfMalde/Autofac.EasyPropInject</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageReleaseNotes>Upgraded to Autofac 6.1.x</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgraded to Autofac 6.3.x
+Added support for private and protected properties</PackageReleaseNotes>
 	 <PackageReadmeFile>README.md</PackageReadmeFile>
 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.2.0" />
+    <PackageReference Include="Autofac" Version="6.3.0" />
 	<None Include="..\nugetdocs\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
