@@ -37,7 +37,7 @@ and then you create the instance BEFORE any registration.
           ......
           var builder = new ContainerBuilder().AddEasyPropInject();
           
-          //Add you services now as usual 
+          //Add your services now as usual 
     }
     
 ```
@@ -66,6 +66,7 @@ Since the type casting feature new in 1.2.x of EasyPropInject is handy sometimes
 
 
 # Whats new?
+* 1.2.1 - Upgraded to Autofac 6.1.x
 * 1.2.0 - Implemented Easy Prop Inject for Autofac 6.x and added the feature to load an property as different type from IContainer. See FromAutofacAttribute.
 * 1.1.1 - Easy Prop Inject now supports Autofac 5.x
 * 1.0.0 - Added Tests
