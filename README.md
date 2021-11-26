@@ -1,4 +1,4 @@
-[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/)
+[![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/) [![Paypal Donate](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL]
 
 
 # Important!
@@ -15,6 +15,11 @@ An extension i created to make it possible to to  inject properties by attribute
 ## DotNetCli
 `dotnet add package Autofac.EasyPropInject`
 
+# Contribute / Donations
+If you got any Ideas to improve my projects feel free to send an pull request. 
+
+If you like my work and want to support me (or want to buy me a coffee/beer) paypal donation are more than appreciated.
+[![Paypal Donate](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL]
 
 # Usage
 ## Startup.cs
