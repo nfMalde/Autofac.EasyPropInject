@@ -1,5 +1,5 @@
 [![Nuget](https://img.shields.io/nuget/v/Autofac.EasyPropinject?style=for-the-badge)](https://www.nuget.org/packages/Autofac.EasyPropInject/) 
- [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
+ [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue?style=flat-square&logo=appveyor)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
 
 
 # Important!
@@ -21,7 +21,7 @@ If you got any Ideas to improve my projects feel free to send an pull request.
 
 If you like my work and want to support me (or want to buy me a coffee/beer) paypal donation are more than appreciated.
 
- [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
+ [![Paypal Donate](https://img.shields.io/badge/DONATE%E2%99%A5-PAYPAL-blue?style=for-the-badge&logo=appveyor)](https://www.paypal.com/donate/?hosted_button_id=SVZHLRTQ6H4VL)
 
 # Usage
 ## Startup.cs
