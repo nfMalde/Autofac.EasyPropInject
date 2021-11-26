@@ -11,11 +11,14 @@
     <PackageProjectUrl>https://github.com/nfMalde/Autofac.EasyPropInject</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nfMalde/Autofac.EasyPropInject</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageReleaseNotes>Upgraded to Autofac 6.1.x</PackageReleaseNotes> 
+    <PackageReleaseNotes>Upgraded to Autofac 6.1.x</PackageReleaseNotes>
+	 <PackageReadmeFile>README.md</PackageReadmeFile>
+
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.1.0" />
+	<None Include="..\nugetdocs\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
