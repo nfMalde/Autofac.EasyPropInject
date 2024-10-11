@@ -1,6 +1,6 @@
 using Autofac.EasyPropInject.Testing.mocks;
 using NUnit.Framework;
-
+using Autofac.EasyPropInject;
 namespace Autofac.EasyPropInject.Testing
 {
     /// <summary>
@@ -38,9 +38,9 @@ namespace Autofac.EasyPropInject.Testing
         {
             var m1 = this.container.Resolve<IMock1>();
 
-            Assert.NotNull(m1.Mock2Property);
-            Assert.NotNull(m1.Mock2Property.Mock3Property);
-            Assert.NotNull(m1.Mock2Property.Mock3Property.Mock4ResolvedAsMainType);
+            Assert.That(m1.Mock2Property != null);
+            Assert.That(m1.Mock2Property.Mock3Property != null);
+            Assert.That(m1.Mock2Property.Mock3Property.Mock4ResolvedAsMainType != null);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace Autofac.EasyPropInject.Testing
         {
             var mPrivate = this.container.Resolve<IMockPrivate>();
 
-            Assert.NotNull(mPrivate.Mock1Test());
+            Assert.That(mPrivate.Mock1Test() != null);
         }
 
         [Test]
@@ -56,8 +56,8 @@ namespace Autofac.EasyPropInject.Testing
         {
             var mPrivate = this.container.Resolve<IMockProtected>();
 
-            Assert.NotNull(mPrivate.GetMockPrivate());
-            Assert.NotNull(mPrivate.GetMockPrivate().Mock1Test());
+            Assert.That(mPrivate.GetMockPrivate() != null);
+            Assert.That(mPrivate.GetMockPrivate().Mock1Test() != null);
         }
     }
 }
