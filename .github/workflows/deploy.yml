@@ -1,0 +1,149 @@
+name: Deploy
+on:
+  push:
+    branches: [ main ]   
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Sources
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: "Build and Test"
+        run: |
+          dotnet build
+          dotnet test
+  version:
+    needs: test
+    runs-on: windows-latest
+    outputs: 
+      version: ${{ steps.newversion.outputs.version }}
+      tag: ${{ steps.newversion.outputs.tag }}      
+    steps:
+    - name: Checkout Sources
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Set New Version
+      id: newversion
+      shell: pwsh
+      run: |
+            $currentVersion = git describe --abbrev=0 --tags --match "v[0-9]*.[0-9]*.[0-9]*-Release"
+
+            if ($currentVersion) {
+              $v = $currentVersion.Split('-')[0].TrimStart('v')
+              Write-Output "RELEASE: New Version: $($v)"
+              Write-Output "version=$($v)" >> $Env:GITHUB_OUTPUT
+              Write-Output "tag=$($currentVersion)" >> $Env:GITHUB_OUTPUT
+            } else {
+    
+                $currentVersion = git describe --abbrev=0 --tags --match "v[0-9]*.[0-9]*.[0-9]*"
+                $currentVersion = git describe --match "$($currentVersion)" --long
+                $versionParts = $currentVersion.Split('-')
+                $v = $versionParts[0]
+                $increment = [int]$versionParts[1]
+                
+                if ($increment -gt 0) {
+                    $increment = 1
+                }
+
+                $vparts = $v.Split('.')
+                $vparts[2] = "$([int]$vparts[2] + [int]$increment)"
+                $v = $vparts -join '.'
+                $v = "$($v)".TrimStart("v")
+                Write-Output "New Version: $($v)"
+                Write-Output "version=$($v)" >> $Env:GITHUB_OUTPUT
+                Write-Output "tag=" >> $Env:GITHUB_OUTPUT
+            }
+  prepublish:
+      needs: [test, version]
+      runs-on: windows-latest
+      outputs:
+        description: ${{ steps.meta.outputs.description }}
+        changeinfo: ${{ steps.meta.outputs.changeinfo }}
+      steps:
+      - name: Checkout Sources
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name : Get Meta Data
+        shell: pwsh
+        id: meta
+        run: |
+          [xml]$xml = get-content "src/Autofac.EasyPropInject.csproj"    
+          $description = $xml.SelectSingleNode("//Description").InnerText;
+          $changes = $xml.SelectSingleNode("//PackageReleaseNotes").InnerText;
+          Write-Output "description=$($description.Trim().Replace("`t", '') | ConvertTo-Json)" >> $Env:GITHUB_OUTPUT
+          Write-Output "changeinfo=$($changes.Trim().Replace("`t", '') | ConvertTo-Json)" >> $Env:GITHUB_OUTPUT
+
+  publish:
+      needs: [test, version, prepublish]
+      runs-on: windows-latest
+      steps:
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Checkout Sources
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create Package
+        run: |
+          dotnet build src/Autofac.EasyPropInject.csproj -c Release -p:AssemblyVersion=${{ needs.version.outputs.version }} -p:PackageVersion=${{ needs.version.outputs.version }}
+          dotnet pack src/Autofac.EasyPropInject.csproj -c Release -p:AssemblyVersion=${{ needs.version.outputs.version }} -p:PackageVersion=${{ needs.version.outputs.version }} --output nget_pkg
+      - name: Create Release and Tag
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v${{ needs.version.outputs.version  }}
+          release_name: Release v${{ needs.version.outputs.version  }}
+          body: |
+           # Release Info Version ${{ needs.version.outputs.version  }}
+           ## Info
+           ${{fromJSON(needs.prepublish.outputs.description)}}
+           ## Changes in v${{ needs.version.outputs.version  }}
+           ${{fromJSON(needs.prepublish.outputs.changeinfo)}}
+          draft: false
+          prerelease: false
+      - name: Delete Release Tag
+        if: ${{needs.version.outputs.tag}}
+        uses: dev-drprasad/delete-tag-and-release@v1.0
+        with:
+          tag_name: ${{needs.version.outputs.tag}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          delete_release: false
+      - name: Upload Release Asset Pkg
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./nget_pkg/Autofac.EasyPropInject.${{ needs.version.outputs.version }}.nupkg
+          asset_name: Autofac.EasyPropInject.${{ needs.prepublish.version.version }}.nupkg
+          asset_content_type: application/zip
+      - name: Upload Release Asset DLL
+        id: upload-release-asset2 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: src/bin/Release/net8.0/Autofac.EasyPropInject.dll
+          asset_name: Autofac.EasyPropInject.dll
+          asset_content_type: application/octet-stream
+      - name: Publish package to nuget
+        id: nugetpush
+        run: dotnet nuget push  "nget_pkg/Autofac.EasyPropInject.${{ needs.version.outputs.version }}.nupkg" -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json  
+
+
+      

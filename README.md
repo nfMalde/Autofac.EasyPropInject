@@ -3,11 +3,10 @@
 
 
 # Important!
-Due to breaking changes to Autofac API  with version 6.x older  Autofac.EasyPropInject Readme can be found in 1.0.x (Autofac <=4>) and 1.1.x (Autofac >=5 < 6>).
-master and 1.2.x will show code examples and info only for Autofac >= 6.
+Due to new Autofac v.8 Version - older versions stay as they are. Updates only occur to latest version released.
 
 # Autofac.EasyPropInject
-An extension i created to make it possible to to  inject properties by attribute, without any other helper libs in  .NET Core for [Autofac](https://github.com/autofac/Autofac).
+An extension i created to make it possible to to  inject properties by attribute, without any other helper libs in  .NET Standard for [Autofac](https://github.com/autofac/Autofac).
 
 # Install
 ## Nuget 
@@ -73,6 +72,7 @@ Since the type casting feature new in 1.2.x of EasyPropInject is handy sometimes
 
 
 # Whats new?
+* 2.0.0 - Upgraded to latest Autofac (8.x)
 * 1.2.5 - Upgraded to Autofac 6.3.x, Added support for private and protected properties See tests for example (https://github.com/nfMalde/Autofac.EasyPropInject/blob/1.2.x/tests/Autofac.EasyPropInject.Testing/InjectionTests.cs)
 * 1.2.4 - Upgraded to Autofac 6.2.x
 * 1.2.3 - Upgraded to Autofac 6.1.x

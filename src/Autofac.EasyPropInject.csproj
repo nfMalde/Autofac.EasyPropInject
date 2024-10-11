@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Allows to inject properties of classes by using annotations.</Description>
     <Authors>Malte Peters</Authors>
@@ -11,14 +11,13 @@
     <PackageProjectUrl>https://github.com/nfMalde/Autofac.EasyPropInject</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nfMalde/Autofac.EasyPropInject</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageReleaseNotes>Upgraded to Autofac 6.3.x
-Added support for private and protected properties</PackageReleaseNotes>
-	 <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Upgraded to Autofac 8.x</PackageReleaseNotes>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac" Version="8.1.1" />
 	<None Include="..\nugetdocs\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
