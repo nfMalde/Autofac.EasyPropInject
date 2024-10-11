@@ -86,10 +86,10 @@ jobs:
       needs: [test, version, prepublish]
       runs-on: windows-latest
       steps:
-      - name: Setup .NET 6
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: 8.0.x
       - name: Checkout Sources
         uses: actions/checkout@v2
         with:
